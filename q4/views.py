@@ -26,4 +26,4 @@ zen_list = [
 
 def index(request):
     zen = zen_list[randrange(1, 20)]
-    return HttpResponse(zen)
+    return HttpResponse("<h1>" + zen + "</h1>")

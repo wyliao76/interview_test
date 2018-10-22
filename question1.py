@@ -12,18 +12,22 @@ def question1():
         "http://gliacloud.com/haha.png",
     ]
     files = []
-    freq = []
+    memo = []
+    freq = {}
 
     for url in urls:
         filename = url.split("/")[-1]
         files.append(filename)
 
     for file in files:
-        freq.append(files.count(file))
+        if file not in memo:
+            memo.append(file)
+            freq[file] = 1
+        else:
+            freq[file] += 1
 
-    print(files)
-    print(freq)
-    
+    for k, v in freq.items():
+        print(k + ' ' + str(v))
 
 
 question1()
